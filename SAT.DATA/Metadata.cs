@@ -154,7 +154,7 @@ namespace SAT.DATA
 
     #region ScheduledClassStatus
 
-    [MetadataType(typeof(ScheduledClassMetadata))]
+    [MetadataType(typeof(ScheduledClassStatusMetadata))]
     public partial class ScheduledClassStatus { }
     public class ScheduledClassStatusMetadata
     {
