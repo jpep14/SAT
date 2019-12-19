@@ -4,3 +4,9 @@ C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMD\SATsolution\src\SA
 C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMD\SATsolution\src\SAT.DATA\obj\Debug\SAT.DATA.csproj.CoreCompileInputs.cache
 C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMD\SATsolution\src\SAT.DATA\obj\Debug\SAT.DATA.dll
 C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMD\SATsolution\src\SAT.DATA\obj\Debug\SAT.DATA.pdb
+C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMD\SATsolution\src\SAT.DATA\bin\Debug\SAT.DATA.dll.config
+C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMD\SATsolution\src\SAT.DATA\bin\Debug\EntityFramework.dll
+C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMD\SATsolution\src\SAT.DATA\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMD\SATsolution\src\SAT.DATA\bin\Debug\EntityFramework.xml
+C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMD\SATsolution\src\SAT.DATA\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMD\SATsolution\src\SAT.DATA\obj\Debug\SAT.DATA.csproj.CopyComplete
