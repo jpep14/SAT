@@ -7,7 +7,7 @@
       <Diagram DiagramId="edfeea3bf2bf4805bb14623f8ef029cb" Name="Diagram1">
         <EntityTypeShape EntityType="SATModel.AspNetRole" Width="1.5" PointX="5.75" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="SATModel.AspNetUser" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.Cours" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.Course" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SATModel.Enrollment" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SATModel.ScheduledClass" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="SATModel.ScheduledClassStatus" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />

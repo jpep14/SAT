@@ -27,7 +27,7 @@ namespace SAT.DATA
     
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
-        public virtual DbSet<Cours> Courses { get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Enrollment> Enrollments { get; set; }
         public virtual DbSet<ScheduledClass> ScheduledClasses { get; set; }
         public virtual DbSet<ScheduledClassStatus> ScheduledClassStatuses { get; set; }

@@ -56,8 +56,8 @@
     <Compile Include="AspNetUser.cs">
       <DependentUpon>SAT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Cours.cs">
+    <Compile Include="Metadata.cs" />
+    <Compile Include="Course.cs">
       <DependentUpon>SAT.tt</DependentUpon>
     </Compile>
     <Compile Include="Enrollment.cs">

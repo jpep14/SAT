@@ -26,7 +26,7 @@
     <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
   </EntityType>
-  <EntityType Name="Cours">
+  <EntityType Name="Course">
     <Key>
       <PropertyRef Name="CourseId" />
     </Key>
@@ -102,7 +102,7 @@
     <NavigationProperty Name="Students" Relationship="Self.FK_Students_StudentStatuses" FromRole="StudentStatuses" ToRole="Students" />
   </EntityType>
   <Association Name="FK_ScheduledClasses_Courses">
-    <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
+    <End Role="Courses" Type="SATModel.Course" Multiplicity="1" />
     <End Role="ScheduledClasses" Type="Self.ScheduledClass" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Courses">
@@ -168,7 +168,7 @@
   <EntityContainer Name="SATEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-    <EntitySet Name="Courses" EntityType="Self.Cours" />
+    <EntitySet Name="Courses" EntityType="SATModel.Course" />
     <EntitySet Name="Enrollments" EntityType="Self.Enrollment" />
     <EntitySet Name="ScheduledClasses" EntityType="Self.ScheduledClass" />
     <EntitySet Name="ScheduledClassStatuses" EntityType="Self.ScheduledClassStatus" />

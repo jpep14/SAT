@@ -28,7 +28,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Courses">
-      <EntityTypeMapping TypeName="SATModel.Cours">
+      <EntityTypeMapping TypeName="SATModel.Course">
         <MappingFragment StoreEntitySet="Courses">
           <ScalarProperty Name="CourseId" ColumnName="CourseId" />
           <ScalarProperty Name="CourseName" ColumnName="CourseName" />
