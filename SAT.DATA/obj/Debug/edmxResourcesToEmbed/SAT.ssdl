@@ -49,7 +49,7 @@
       <PropertyRef Name="EnrollmentId" />
     </Key>
     <Property Name="EnrollmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="ScheduledClassId" Type="int" Nullable="false" />
     <Property Name="EnrollmentDate" Type="date" Nullable="false" />
   </EntityType>
@@ -76,7 +76,7 @@
     <Key>
       <PropertyRef Name="StudentID" />
     </Key>
-    <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentID" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="Major" Type="nvarchar" MaxLength="30" />
@@ -173,6 +173,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Students_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Students_StudentStatuses">
     <End Role="StudentStatuses" Type="Self.StudentStatuses" Multiplicity="1" />
     <End Role="Students" Type="Self.Students" Multiplicity="*" />
@@ -218,6 +230,10 @@
     <AssociationSet Name="FK_ScheduledClasses_ScheduledClassStatuses" Association="Self.FK_ScheduledClasses_ScheduledClassStatuses">
       <End Role="ScheduledClassStatuses" EntitySet="ScheduledClassStatuses" />
       <End Role="ScheduledClasses" EntitySet="ScheduledClasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Students_AspNetUsers" Association="Self.FK_Students_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Students" EntitySet="Students" />
     </AssociationSet>
     <AssociationSet Name="FK_Students_StudentStatuses" Association="Self.FK_Students_StudentStatuses">
       <End Role="StudentStatuses" EntitySet="StudentStatuses" />

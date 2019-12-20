@@ -10,6 +10,7 @@ using SAT.DATA;
 
 namespace SAT.UI.Controllers
 {
+    [Authorize(Roles = "Admin, Student")]
     public class ScheduledClassesController : Controller
     {
         private SATEntities db = new SATEntities();
@@ -99,6 +100,7 @@ namespace SAT.UI.Controllers
         }
 
         // GET: ScheduledClasses/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,6 +116,7 @@ namespace SAT.UI.Controllers
         }
 
         // POST: ScheduledClasses/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -10,11 +10,12 @@ using SAT.DATA;
 
 namespace SAT.UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CoursesController : Controller
     {
         private SATEntities db = new SATEntities();
 
-        // GET: Courses
+        // GET: Courses if we wanted to allow anyone to see the index [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Courses.ToList());

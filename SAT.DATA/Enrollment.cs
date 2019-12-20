@@ -15,7 +15,7 @@ namespace SAT.DATA
     public partial class Enrollment
     {
         public int EnrollmentId { get; set; }
-        public int StudentId { get; set; }
+        public string StudentId { get; set; }
         public int ScheduledClassId { get; set; }
         public System.DateTime EnrollmentDate { get; set; }
     

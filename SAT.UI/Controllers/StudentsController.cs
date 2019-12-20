@@ -10,6 +10,7 @@ using SAT.DATA;
 
 namespace SAT.UI.Controllers
 {
+    [Authorize(Roles = "Admin, Student")]
     public class StudentsController : Controller
     {
         private SATEntities db = new SATEntities();
@@ -37,6 +38,7 @@ namespace SAT.UI.Controllers
         }
 
         // GET: Students/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.SSID = new SelectList(db.StudentStatuses, "SSID", "SSName");
@@ -62,6 +64,7 @@ namespace SAT.UI.Controllers
         }
 
         // GET: Students/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,6 +98,7 @@ namespace SAT.UI.Controllers
         }
 
         // GET: Students/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -112,6 +116,7 @@ namespace SAT.UI.Controllers
         // POST: Students/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Student student = db.Students.Find(id);

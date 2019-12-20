@@ -4,15 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="edfeea3bf2bf4805bb14623f8ef029cb" Name="Diagram1">
-        <EntityTypeShape EntityType="SATModel.AspNetRole" Width="1.5" PointX="5.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.AspNetUser" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.Course" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.Enrollment" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.ScheduledClass" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.ScheduledClassStatus" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.Student" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.StudentStatus" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+      <Diagram DiagramId="8ea9606bf9f645efb24b7506ac9a981c" Name="Diagram1">
+        <EntityTypeShape EntityType="SATModel.AspNetRole" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.AspNetUser" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.Course" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.Enrollment" Width="1.5" PointX="7.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.ScheduledClass" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.ScheduledClassStatus" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.Student" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.StudentStatus" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="SATModel.FK_Students_AspNetUsers" ManuallyRouted="false" />
         <AssociationConnector Association="SATModel.FK_ScheduledClasses_Courses" ManuallyRouted="false" />
         <AssociationConnector Association="SATModel.FK_Enrollments_ScheduledClasses" ManuallyRouted="false" />
         <AssociationConnector Association="SATModel.FK_Enrollments_Students" ManuallyRouted="false" />

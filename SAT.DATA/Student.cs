@@ -20,7 +20,7 @@ namespace SAT.DATA
             this.Enrollments = new HashSet<Enrollment>();
         }
     
-        public int StudentID { get; set; }
+        public string StudentID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Major { get; set; }
@@ -33,6 +33,7 @@ namespace SAT.DATA
         public string PhotoURL { get; set; }
         public int SSID { get; set; }
     
+        public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Enrollment> Enrollments { get; set; }
         public virtual StudentStatus StudentStatus { get; set; }

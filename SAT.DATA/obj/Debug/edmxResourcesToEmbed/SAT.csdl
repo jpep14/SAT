@@ -24,6 +24,7 @@
     <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
     <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
     <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Students_AspNetUsers" FromRole="AspNetUsers" ToRole="Students" />
     <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
   </EntityType>
   <EntityType Name="Course">
@@ -44,7 +45,7 @@
       <PropertyRef Name="EnrollmentId" />
     </Key>
     <Property Name="EnrollmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="StudentId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ScheduledClassId" Type="Int32" Nullable="false" />
     <Property Name="EnrollmentDate" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="ScheduledClass" Relationship="Self.FK_Enrollments_ScheduledClasses" FromRole="Enrollments" ToRole="ScheduledClasses" />
@@ -77,7 +78,7 @@
     <Key>
       <PropertyRef Name="StudentID" />
     </Key>
-    <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Major" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
@@ -89,6 +90,7 @@
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PhotoURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="SSID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Students_AspNetUsers" FromRole="Students" ToRole="AspNetUsers" />
     <NavigationProperty Name="Enrollments" Relationship="Self.FK_Enrollments_Students" FromRole="Students" ToRole="Enrollments" />
     <NavigationProperty Name="StudentStatus" Relationship="Self.FK_Students_StudentStatuses" FromRole="Students" ToRole="StudentStatuses" />
   </EntityType>
@@ -101,6 +103,18 @@
     <Property Name="SSDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Students" Relationship="Self.FK_Students_StudentStatuses" FromRole="StudentStatuses" ToRole="Students" />
   </EntityType>
+  <Association Name="FK_Students_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ScheduledClasses_Courses">
     <End Role="Courses" Type="SATModel.Course" Multiplicity="1" />
     <End Role="ScheduledClasses" Type="Self.ScheduledClass" Multiplicity="*" />
@@ -174,6 +188,10 @@
     <EntitySet Name="ScheduledClassStatuses" EntityType="Self.ScheduledClassStatus" />
     <EntitySet Name="Students" EntityType="Self.Student" />
     <EntitySet Name="StudentStatuses" EntityType="Self.StudentStatus" />
+    <AssociationSet Name="FK_Students_AspNetUsers" Association="Self.FK_Students_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
     <AssociationSet Name="FK_ScheduledClasses_Courses" Association="Self.FK_ScheduledClasses_Courses">
       <End Role="Courses" EntitySet="Courses" />
       <End Role="ScheduledClasses" EntitySet="ScheduledClasses" />
