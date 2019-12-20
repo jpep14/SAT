@@ -81,14 +81,15 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
   display: block; }
 
 body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 2.4;
-  color: #999;
-  text-align: left;
-  background-color: #fff; }
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 2.4;
+    color: #140115;
+    text-align: left;
+    background-color: #fff;
+}
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }

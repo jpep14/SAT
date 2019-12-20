@@ -6,11 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using SAT.DATA;
 
 namespace SAT.UI.Controllers
 {
-    [Authorize(Roles = "Admin, Student")]
+    [Authorize(Roles = "Student, Admin")]
     public class EnrollmentsController : Controller
     {
         private SATEntities db = new SATEntities();
@@ -19,6 +20,27 @@ namespace SAT.UI.Controllers
         public ActionResult Index()
         {
             var enrollments = db.Enrollments.Include(e => e.ScheduledClass).Include(e => e.Student);
+
+            #region Custom Student Enrollement Records
+
+            //see if the user is in the role of student
+            if (User.IsInRole("Student"))
+            {
+                //get the current user's Id -- this should match the StudentId as well
+                var id = User.Identity.GetUserId();
+
+                //return enrollments base on the currentuser/student's id
+                enrollments = enrollments.Where(x => x.StudentId == id);
+
+                //check and see if they have enrollments, if not send them somewhere else
+                if (enrollments.Count() == 0)
+                {
+                    Session["NoEnrollment"] = "You currently have no enrollments";
+                    return RedirectToAction("Create");
+                }
+            };
+            #endregion
+
             return View(enrollments.ToList());
         }
 
@@ -40,8 +62,10 @@ namespace SAT.UI.Controllers
         // GET: Enrollments/Create
         public ActionResult Create()
         {
-            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses, "ScheduledClassId", "InstructorName");
-            ViewBag.StudentId = new SelectList(db.Students, "StudentID", "FirstName");
+            ViewBag.ScheduledClassId = new SelectList(db.ScheduledClasses.Where(x => x.ScheduledClassStatus.SCSID == 1), "ScheduledClassId", "Cours.CourseName");
+            //ViewBag.ScheduledClass = (IEnumerable<ScheduledClass>)db.ScheduledClasses.ToList();
+
+            ViewBag.StudentId = new SelectList(db.Students.Where(x => x.SSID == 1), "StudentID", "FullName");
             return View();
         }
 
@@ -52,6 +76,10 @@ namespace SAT.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EnrollmentId,StudentId,ScheduledClassId,EnrollmentDate")] Enrollment enrollment)
         {
+            //before we check for validation we are going to assign the parameter
+            //the enrollmentdate property
+            enrollment.EnrollmentDate = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 db.Enrollments.Add(enrollment);

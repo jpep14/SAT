@@ -79,6 +79,43 @@ namespace IdentitySample.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        #region Student Property Info
+
+        [Display(Name = "First Name")]
+        [Required(ErrorMessage = "*REQUIRED")]
+        [StringLength(20, ErrorMessage = "Name must be 20 characters or less")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Last Name")]
+        [Required(ErrorMessage = "*REQUIRED")]
+        [StringLength(20, ErrorMessage = "Name must be 20 characters or less")]
+        public string LastName { get; set; }
+        [StringLength(30, ErrorMessage = "Must be 30 characters or less")]
+        public string Major { get; set; }
+
+        [StringLength(50, ErrorMessage = "Address must be 50 characters or less")]
+        public string Address { get; set; }
+
+        [StringLength(25, ErrorMessage = "City must be 25 characters or less")]
+        public string City { get; set; }
+
+        [StringLength(2, MinimumLength = 2, ErrorMessage = "Please use two letter abbreviation")]
+        public string State { get; set; }
+
+        [Display(Name = "Zip Code")]
+        [StringLength(10, ErrorMessage = "No more than 10 digits please")]
+        [DataType(DataType.PostalCode, ErrorMessage = "Please enter a valid zip code")]
+        public string ZipCode { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        public string Phone { get; set; }
+
+        [Display(Name = "Photo URL")]
+        [StringLength(100, ErrorMessage = "URL must be 100 characters or less")]
+        public string PhotoURL { get; set; }
+
+        #endregion
     }
 
     public class ResetPasswordViewModel

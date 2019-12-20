@@ -51,7 +51,13 @@ namespace SAT.DATA
 
     #region Student
     [MetadataType(typeof(StudentMetadata))]
-    public partial class Student { }
+    public partial class Student {
+        //this is where I would add custom read only properties
+        public string FullName
+        {
+            get { return LastName + ", " + FirstName; }
+        }
+    }
     public class StudentMetadata
     { 
         [Display(Name = "First Name")]
@@ -87,7 +93,7 @@ namespace SAT.DATA
         [StringLength(50, ErrorMessage = "Must be 50 characters or less")]
         public string Email { get; set; }
 
-        [Display(Name = "URL")]
+        [Display(Name = "Photo URL")]
         [StringLength(100, ErrorMessage = "URL must be 100 characters or less")]
         public string PhotoURL { get; set; }
     }
